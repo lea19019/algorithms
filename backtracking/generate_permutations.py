@@ -58,7 +58,7 @@ def permutationsState(letters: str) -> List[str]:
     ans = []
     def dfs(path, idx, used):
         if idx == len(letters):
-            ans.append(''.join(path[:]))
+            ans.append(''.join(path))
             return
         for i, char in enumerate(letters):
             if used[i]:

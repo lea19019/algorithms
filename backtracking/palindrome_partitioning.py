@@ -33,3 +33,21 @@ if __name__ == '__main__':
     res = partition(s)
     for row in res:
         print(' '.join(row))
+
+
+
+def partition2(s: str) -> List[List[str]]:
+    res = []
+    n = len(s)
+    def dfs(path, idx):
+        if idx == n:
+            res.append(path[:])
+            return
+        for end in range(idx, n):
+            node = s[idx:end+1]
+            if node == node[::-1]:
+                path.append(node)
+                dfs(path, idx+len(node))
+                path.pop()
+    dfs([], 0)
+    return res
